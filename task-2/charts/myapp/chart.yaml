@@ -1,0 +1,9 @@
+apiVersion: v2
+name: my-app
+description: A helm chart example with requirements deployment, service, hpa, ingress, pdb.
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+maintainers:
+  - name: Ryanta Satya
+    email: ryantasat32@example.com
