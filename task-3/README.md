@@ -1,4 +1,6 @@
-# log-check.sh
+# Technical Assessment - DevOps 3: Log Analysis
+---
+## log-check.sh
 **How to use?**
 ```
 ./log-check.sh -f <logfile>
