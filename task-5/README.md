@@ -33,23 +33,23 @@
 
 **Langkah-langkah:**
 
-- **Cek Alert:**
+- **Cek Alert**
   - Cek alert dari monitoring tools dan status endpoint. biasanya kita melakukan define endpoint /healthz sebagai acuan service sedang berjalan
 
-- **Cek Resource:**
+- **Cek Resource**
   - Cek status pod pada service yang bermasalah. jika pod mengalami crashloopbackoff, kita coba cek apakah ada deployment versi terbaru atau tidak.
   - pastikan komunikasi antar service tidak terjadi masalah atau koneksi ke db, rabbitmq, kafka ataupun redis tidak ada masalah.
 
-- **Check log:**
+- **Check log**
   - indentifikasi apakah ada trend error yang terjadi dari log. jika relate dengan resource service coba cari tahu terlebih dahulu lognya.
   - kumpulkan log yang relate dengan error tersebut.
 
-- **Lakukan Rollback:**
+- **Lakukan Rollback**
   - Jika deployment menyebabkan error 5xx atau panic, lakukan rollback ke versi sebelumnya.
   - Aktifkan failover atau recovery plan sesuai SOP.
   - gunakan pod disruption budget jika mengalami lagi. agar meminimalisir kejadian tersebut. jika kita sudah menggunakannya, kita dapat langsung action tanpa mengalami downtime.
 
-- **Buat Incident Report:**
+- **Buat Incident Report**
   - pastikan menulis seluruh aktifitas yang kita lakukan didalam incident report ataupun Post Mortem. Undang developer ataupun engineer terkait agar ikut serta dalam debugging serta dalam melakukan perbaikan.
 
 ---
@@ -79,7 +79,7 @@
 - **Pastikan menggunakan HA**
   - kita perlu menggunakan 3 subnet untuk multiple zone. jika kita membagi 2 subnet menjadi public dan private, kita perlu definisikan tiap subnet tersebut 3 subnet sesuaikan dengan availability zone biasanya a,b, dan c.
 
-**Tipe subnet:**
+**Tipe subnet**
 - Public Subnet: Untuk ALB atau NLB, bastion atau jump serber, dan NAT Gateway.
 - Private Subnet: Untuk aplikasi, database, cached dan aplikasi atau tool yang relate dengan cluster kita.
 
