@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  sonarqube:
+    image: sonarqube:community
+    container_name: sonarqube
+    ports:
+      - "9000:9000"
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+      - SONAR_JDBC_URL=jdbc:postgresql://db:5432/sonardb
+      - SONAR_JDBC_USERNAME=sonarqu
+      - SONAR_JDBC_PASSWORD=sonar
+    depends_on:
+      - db
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_temp:/opt/sonarqube/temp
+
+  db:
+    image: postgres:15
+    container_name: sonar-db
+    environment:
+      POSTGRES_USER: sonarqu
+      POSTGRES_PASSWORD: sonar
+      POSTGRES_DB: sonardb
+    volumes:
+      - ./postgresql:/var/lib/postgresql:rw
+
+
+volumes:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_conf:
+  sonarqube_logs:
+  sonarqube_temp:
