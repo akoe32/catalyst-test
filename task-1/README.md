@@ -10,7 +10,7 @@
 
 ---
 
-## 🔄 2. Penjelasan Alur Komunikasi
+## 2. Penjelasan Alur Komunikasi
 
 1. **User Request**  
    flow user request ditandai dengan garis lurus berwarna hitam dan garis putus-putus berwarna hitam juga. request dari user akan masuk kedalam public ingress. Disini kita bisa menggunakan Nginx Ingress Controller sebagai ingress controller. Lalu request akan masuk kedalam frontend service. dalam frontend service tersebut request akan diteruskan ke backend service melalui api-gw yang telah kita buat. Dari api-gw tersebut request akan masuk kedalam masing-masing backend service. Setiap request yang masuk kedalam backend service akan melewati api-gw terlebih dahulu. didalam service-http akan handle request dari frontend dan akan terhubung dengan redis untuk caching dan mysql untuk penyimpanan data atau sebagai database. sedangkan service publisher dan consumer akan menyimpan proses queueing kedalam redis.
@@ -23,7 +23,7 @@
 
 ---
 
-## 3. Konsep DevOps Penting
+## 3. Apa yang kamu ketahui Tentang?
 
 ### High Availability (HA)
 High Availability adalah sebuah mekanisme untuk memastikan sistem atau service tetap berjalan atau running meskipun adanya kesalahan atau kegagalan suatu service.
