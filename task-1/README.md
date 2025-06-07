@@ -46,7 +46,7 @@ Rutinitas yang dilakukan untuk menjaga sebuah resource agar aman dan efisiensi s
 - Backup & purging database, disini kita dapat melakukan purging backup database yang disimpan dengan retention period.
 - Memastikan image Docker tidak menumpuk di node. perlu menambahkan automation untuk melakukan docker prune.
 
-### 📊 Monitoring
+### Monitoring
 
 Kegiatan untuk memantau kinerja server, container dan apps yang kita miliki. yang perlu kita monitoring:
 - Resource, kita dapat menggunakan node-exporter dan menyimpannya dalam victoria metrics
