@@ -1,18 +1,13 @@
 replicaCount: 1
-
 image:
   repository: docker.io/akooe32/catalyst-go-example
-  tag: latest
+  tag: df95b45
   pullPolicy: IfNotPresent
-
 containerPort: 8080
-
 service:
   type: ClusterIP
   port: 8080
   targetPort: 8080
-
-
 ingress:
   enabled: true
   annotations:
@@ -28,7 +23,6 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
-
 hpa:
   enabled: true
   minReplicas: 1
@@ -40,7 +34,6 @@ hpa:
         target:
           type: Utilization
           averageUtilization: 80
-
 resources:
   requests:
     cpu: "100m"
@@ -48,7 +41,6 @@ resources:
   limits:
     cpu: "200m"
     memory: "256Mi"
-
 pdb:
   enabled: true
   minAvailable: 1
